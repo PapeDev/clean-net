@@ -18,6 +18,7 @@
 
 
     <div class="container">
+        @include('layouts._flash')
         @yield('content')
     </div>
 

@@ -23,6 +23,7 @@ class CreateClientsTable extends Migration
             $table->string('tel');
             $table->integer('actif');
             $table->integer('estSupprime');
+            $table->integer('soc');
             $table->timestamps();
         });
     }

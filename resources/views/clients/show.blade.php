@@ -210,6 +210,6 @@
 @endsection
 
 
-@section('scripts')
-
-@endsection
+@push('scripts')
+<script src="test"></script>
+@endpush

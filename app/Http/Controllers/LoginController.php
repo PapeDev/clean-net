@@ -23,7 +23,15 @@ class LoginController extends Controller
 
         if(Auth::attempt(['login' => $request->login, 'password' => $request->password]))
         {
-            Session::flash('success', 'Connexion réussie !');
+            if(Auth::user()->numberConnexion == 0)
+            {
+                Session::flash('info', 'Vous devez mettre à jour vos informations et changer votre mot de passe');
+            }
+            else
+            {
+                Session::flash('success', 'Connexion réussie !');
+            }
+            //
             return redirect()->route('dashboard_Admin');
         }
         Session::flash('warning', 'Login / mot de passe incorrect !');

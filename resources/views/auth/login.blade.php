@@ -10,13 +10,24 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-6">
-            <h2>Avec Clean net, Votre pressing restera clean !</h2>
+
+
+        <div class="col-md-6 text-center">
+            <img src="images/logo-clean-net.jpg" alt="Clean Net - Logo" title="Logo - Clean Net"/>
+            <h1 style="font-size: 24px;">Clean Net</h1>
+            <p class="text-justify"> <i class="fa fa-caret-right"></i>  Clean Net est une application de gestion de pressing. L'application peut être accessible en ligne, vous pouvez l'avoir aussi en version local personnalisée.
+                <br/>
+                Pour toutes <strong>informations complémentaires</strong>. Veuillez nous contacter <i class="fa fa-hand-o-down"></i></p>
+            <a href="#" class="btn btn-success">Contactez-nous</a>
+
+
         </div>
+
         <div class="col-md-6">
             <div class="jumbotron">
-                <h1>Authentification</h1>
-                <p>This is a template showcasing the optiona.</p>
+                <h2 style="font-size: 26px;">Authentification</h2>
+                <p class="text-justify" style="font-size: 12px;"> <i class="fa fa-caret-right" style="color: red;"></i> Connectez-vous pour accéder à l'administration de votre pressing.</p>
+                <br/>
 
                 @if(count($errors) > 0)
                     <div class="alert alert-danger">
@@ -43,6 +54,13 @@
                     {{ csrf_field() }}
                 </form>
             </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <p>Avec Clean net, faites des économies</p>
         </div>
     </div>
 @endsection

@@ -44,6 +44,8 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    @stack('stylesheets')
+    @stack('scripts.header')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -53,6 +55,8 @@
     @include('partials._menuAdmin')
 
     <div class="content-wrapper">
+        <br/>
+        {{--@include('partials._updatedInfos')--}}
         @yield('content')
     </div>
     <!-- /.content-wrapper -->
@@ -132,7 +136,7 @@
         });
     });
 </script>
-@yield('scripts')
+@stack('scripts')
 </body>
 </html>
 

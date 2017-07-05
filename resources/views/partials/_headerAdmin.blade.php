@@ -15,11 +15,16 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-
+                <li class="notifications-menu">
+                    <a href="{{ route('depots.lingeClient')}}">
+                        <i class="ion-ios-cart"></i>
+                        <span class="label label-success">{{ Session::has('linge') ? Session::get('linge')->totalQty : '' }}</span>
+                    </a>
+                </li>
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell-o"></i>
-                        <span class="label label-warning">10</span>
+                        <span class="label label-warning">1</span>
                     </a>
 
                 </li>

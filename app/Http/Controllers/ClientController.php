@@ -13,7 +13,6 @@ class ClientController extends Controller
     {
         $clients = DB::table('clients')
             ->where([
-                    ['actif', '=', '1'],
                         ['estSupprime', '<>', '1'],
                     ])
             ->orderBy('created_at', 'desc')
@@ -45,6 +44,7 @@ class ClientController extends Controller
         $client->tel = $request->tel;
         $client->email = $request->email;
         $client->actif = 1;
+        $client->soc = 1;
         $client->estSupprime = 0;
         //dd($post);
 
@@ -91,5 +91,25 @@ class ClientController extends Controller
         Session::flash('success', 'Informations clients modifiées avec succés !');
         //redirect with flash
         return redirect()->route('clients.show', $client->id);
+    }
+
+    public function checkActif($id, Request $request)
+    {
+        $client = Client::findOrFail($id);
+
+        if($client->actif == 1)
+        {
+            $client->actif = 0;
+        }
+        elseif($client->actif == 0)
+        {
+            $client->actif = 1;
+        }
+
+        $client->save();
+        // set flash data with success
+        Session::flash('success', 'Informations clients modifiées avec succés !');
+        //redirect with flash
+        return redirect()->route('clients');
     }
 }

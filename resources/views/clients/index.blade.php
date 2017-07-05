@@ -33,6 +33,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
+                        <td>#</td>
                         <th>Nom</th>
                         <th>Prenom</th>
                         <th>Email</th>
@@ -42,16 +43,22 @@
                     </thead>
                     <tbody>
                     @if($clients)
+
                         @foreach($clients as $client)
                             <tr>
+                                <td>@if($client->actif == 1) <a
+                                            href="{{ route('clients.checkActif', $client->id) }}"> <i class="fa fa-check-circle text-success"></i></a> @else
+                                        <a href="{{ route('clients.checkActif', $client->id) }}"> <i class="fa fa-circle-o text-danger"></i></a> @endif</td>
                                 <td><a href="{{ route('clients.show', $client->id) }}">{{ $client->nom }}</a></td>
                                 <td>{{ $client->prenom }}</td>
                                 <td>{{ $client->email }}</td>
                                 <td>{{ $client->tel  }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-success mce-btn-small btn-sm"> Versement</a>
-                                    <a href="#" class="btn btn-default mce-btn-small btn-sm"> Dépôt</a>
-                                    <a href="#" class="btn btn-danger mce-btn-small btn-sm"> Retrait</a>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn btn-success mce-btn-small btn-sm"> Versement</a>
+                                        <a href="{{ route('depots.create', $client->id) }}" class="btn btn-default mce-btn-small btn-sm"> Dépôt</a>
+                                        <a href="#" class="btn btn-danger mce-btn-small btn-sm"> Retrait</a>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
@@ -78,3 +85,7 @@
 
 
 @endsection
+
+@push('scripts')
+<script src="test"></script>
+@endpush
